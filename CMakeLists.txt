@@ -11,7 +11,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Set the path to the source code
 file(GLOB SRC_FILES CONFIGURE_DEPENDS "src/*.hpp" "src/*.cpp")
 
-add_executable(Game ${SRC_FILES})
+add_executable(Game ${SRC_FILES} src/C_Drawable.cpp src/C_Drawable.hpp src/S_Drawable.cpp src/S_Drawable.hpp)
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})

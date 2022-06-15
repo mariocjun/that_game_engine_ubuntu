@@ -1,6 +1,6 @@
 #include "Window.hpp"
 
-Window::Window(const std::string &windowName) : window(sf::VideoMode(1920,1080), windowName,
+Window::Window(const std::string &windowName) : window(sf::VideoMode(1920, 1080), windowName,
                                                        sf::Style::Titlebar | sf::Style::Close) {
     window.setVerticalSyncEnabled(true);
     window.setFramerateLimit(60);

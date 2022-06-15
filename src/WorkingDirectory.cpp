@@ -1,12 +1,11 @@
 #include "WorkingDirectory.hpp"
 #include <unistd.h>
 
-WorkingDirectory::WorkingDirectory()
-{
+WorkingDirectory::WorkingDirectory() {
     path = "./";
-    
+
 #ifdef MACOS
-    
+
     // Change the default working directory to that of the XCode resource path on MacOS.
     CFBundleRef mainBundle = CFBundleGetMainBundle();
     CFURLRef resourcesURL = CFBundleCopyResourcesDirectoryURL(mainBundle);
@@ -23,6 +22,6 @@ WorkingDirectory::WorkingDirectory()
 
     // Change the default working directory to that of the XCode resource path on Linux.
     path = "../src//";
-    
+
 #endif
 }

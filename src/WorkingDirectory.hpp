@@ -7,16 +7,14 @@
 #include "CoreFoundation/CoreFoundation.h"
 #endif
 
-class WorkingDirectory
-{
+class WorkingDirectory {
 public:
     WorkingDirectory();
-    
-    inline const std::string& Get()
-    {
+
+    inline const std::string &Get() {
         return path;
     }
-    
+
 private:
     std::string path;
 };
