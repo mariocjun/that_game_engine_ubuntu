@@ -1,0 +1,87 @@
+[
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/Animation.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/Animation.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/Animation.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/Bitmask.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/Bitmask.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/Bitmask.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/C_Animation.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/C_Animation.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/C_Animation.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/C_KeyboardMovement.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/C_KeyboardMovement.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/C_KeyboardMovement.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/C_Sprite.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/C_Sprite.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/C_Sprite.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/C_Transform.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/C_Transform.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/C_Transform.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/Game.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/Game.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/Game.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/Input.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/Input.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/Input.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/Main.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/Main.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/Main.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/Object.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/Object.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/Object.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/ObjectCollection.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/ObjectCollection.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/ObjectCollection.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/SceneGame.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/SceneGame.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/SceneGame.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/SceneSplashScreen.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/SceneSplashScreen.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/SceneSplashScreen.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/SceneStateMachine.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/SceneStateMachine.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/SceneStateMachine.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/TileMapParser.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/TileMapParser.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/TileMapParser.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/Window.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/Window.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/Window.cpp"
+},
+{
+  "directory": "/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug",
+  "command": "/usr/bin/c++  -std=c++14 -g -o CMakeFiles/Game.dir/src/WorkingDirectory.cpp.o -c /home/mariocj/CLionProjects/Cpp11Game/src/WorkingDirectory.cpp",
+  "file": "/home/mariocj/CLionProjects/Cpp11Game/src/WorkingDirectory.cpp"
+}
+]
