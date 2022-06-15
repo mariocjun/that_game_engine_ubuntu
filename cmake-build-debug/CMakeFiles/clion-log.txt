@@ -1,5 +1,0 @@
-/home/mariocj/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.2964.48/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/mariocj/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.2964.48/bin/ninja/linux/ninja -G Ninja -S /home/mariocj/CLionProjects/Cpp11Game -B /home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug
--- Found SFML 2.5.1 in /usr/include
--- Configuring done
--- Generating done
--- Build files have been written to: /home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug

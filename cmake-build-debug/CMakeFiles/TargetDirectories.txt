@@ -1,3 +1,0 @@
-/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug/CMakeFiles/Game.dir
-/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/mariocj/CLionProjects/Cpp11Game/cmake-build-debug/CMakeFiles/rebuild_cache.dir
