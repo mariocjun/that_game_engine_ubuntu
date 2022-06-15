@@ -4,11 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include "Bitmask.hpp"
 
-class Input
-{
+class Input {
 public:
-    enum class Key
-    {
+    enum class Key {
         None = 0,
         Left = 1,
         Right = 2,
@@ -16,13 +14,13 @@ public:
         Down = 4,
         Esc = 5
     };
-    
+
     void Update();
-    
+
     bool IsKeyPressed(Key keycode); // Returns true if the key is pressed.
     bool IsKeyDown(Key keycode); // Returns true if the key was just pressed.
     bool IsKeyUp(Key keycode); // Returns true if the key was just released.
-    
+
 private:
     Bitmask thisFrameKeys;
     Bitmask lastFrameKeys;

@@ -5,22 +5,22 @@
 #include "Input.hpp"
 #include "C_Animation.hpp"
 
-class C_KeyboardMovement : public Component
-{
+class C_KeyboardMovement : public Component {
 public:
-    C_KeyboardMovement(Object* owner);
-    
+    C_KeyboardMovement(Object *owner);
+
     void Awake() override;
-    
-    void SetInput(Input* input);
+
+    void SetInput(Input *input);
+
     void SetMovementSpeed(int moveSpeed);
-    
+
     void Update(float deltaTime) override;
-    
+
 private:
     int moveSpeed;
-    Input* input;
-    
+    Input *input;
+
     std::shared_ptr<C_Animation> animation;
 };
 

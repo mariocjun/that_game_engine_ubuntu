@@ -3,15 +3,13 @@
 
 #include <vector>
 
-enum class FacingDirection
-{
+enum class FacingDirection {
     None,
     Left,
     Right
 };
 
-struct FrameData
-{
+struct FrameData {
     int id;
     int x;
     int y;
@@ -20,26 +18,25 @@ struct FrameData
     float displayTimeSeconds;
 };
 
-class Animation
-{
+class Animation {
 public:
     Animation(FacingDirection direction);
-    
+
     void AddFrame(int textureID, int x, int y, int width, int height, float frameTime);
-    
-    const FrameData* GetCurrentFrame() const;
-    
+
+    const FrameData *GetCurrentFrame() const;
+
     bool UpdateFrame(float deltaTime);
-    
+
     void Reset();
-    
+
     void SetDirection(FacingDirection dir);
-    
+
     FacingDirection GetDirection() const;
-    
+
 private:
     void IncrementFrame();
-    
+
     std::vector<FrameData> frames;
     int currentFrameIndex;
     float currentFrameTime;

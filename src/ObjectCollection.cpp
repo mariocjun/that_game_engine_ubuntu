@@ -21,13 +21,11 @@ void ObjectCollection::LateUpdate(float deltaTime) {
 }
 
 void ObjectCollection::Draw(Window &window) {
-    for (const auto &o: objects) {
-        o->Draw(window);
-    }
+    drawables.Draw(window);
 }
 
 void ObjectCollection::ProcessNewObjects() {
-    if (!newObjects.empty()) {
+    if (newObjects.size() > 0) {
         for (const auto &o: newObjects) {
             o->Awake();
         }
@@ -38,6 +36,8 @@ void ObjectCollection::ProcessNewObjects() {
 
         objects.insert(objects.end(), newObjects.begin(), newObjects.end());
 
+        drawables.Add(newObjects);
+
         newObjects.clear();
     }
 }
@@ -45,12 +45,15 @@ void ObjectCollection::ProcessNewObjects() {
 void ObjectCollection::ProcessRemovals() {
     auto objIterator = objects.begin();
     while (objIterator != objects.end()) {
-        auto obj = **objIterator;
+        auto obj = *objIterator;
 
-        if (obj.IsQueuedForRemoval()) {
+        if (obj->IsQueuedForRemoval()) {
             objIterator = objects.erase(objIterator);
         } else {
             ++objIterator;
         }
     }
+
+    drawables.ProcessRemovals();
 }
+

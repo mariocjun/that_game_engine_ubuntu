@@ -12,23 +12,26 @@
 #include "TileMapParser.hpp"
 #include "C_Animation.hpp"
 
-class SceneGame : public Scene
-{
+class SceneGame : public Scene {
 public:
-    SceneGame(WorkingDirectory& workingDir, ResourceAllocator<sf::Texture>& textureAllocator);
-    
+    SceneGame(WorkingDirectory &workingDir, ResourceAllocator<sf::Texture> &textureAllocator);
+
     void OnCreate() override;
+
     void OnDestroy() override;
-    
+
     void ProcessInput() override;
+
     void Update(float deltaTime) override;
+
     void LateUpdate(float deltaTime) override;
-    void Draw(Window& window) override;
-    
+
+    void Draw(Window &window) override;
+
 private:
-    WorkingDirectory& workingDir;
+    WorkingDirectory &workingDir;
     Input input;
-    ResourceAllocator<sf::Texture>& textureAllocator;
+    ResourceAllocator<sf::Texture> &textureAllocator;
     ObjectCollection objects;
     TileMapParser mapParser;
 };

@@ -1,5 +1,6 @@
 #ifndef Utilities_h
 #define Utilities_h
+
 #include <string>
 
 class Utilities {

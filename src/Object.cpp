@@ -1,56 +1,45 @@
 #include "Object.hpp"
 
-Object::Object() : queuedForRemoval(false)
-{
+Object::Object() : queuedForRemoval(false) {
     transform = AddComponent<C_Transform>();
 }
 
-void Object::Awake()
-{
-    for (auto& c : components)
-    {
+void Object::Awake() {
+    for (auto c: components) {
         c->Awake();
     }
 }
 
-void Object::Start()
-{
-    for (auto& c : components)
-    {
+void Object::Start() {
+    for (auto c: components) {
         c->Start();
     }
 }
 
-void Object::Update(float timeDelta)
-{
-    for (const auto& component : components)
-    {
+void Object::Update(float timeDelta) {
+    for (const auto component: components) {
         component->Update(timeDelta);
     }
 }
 
-void Object::LateUpdate(float timeDelta)
-{
-    for (const auto& component : components)
-    {
+void Object::LateUpdate(float timeDelta) {
+    for (const auto component: components) {
         component->LateUpdate(timeDelta);
     }
 }
 
-void Object::Draw(Window& window)
-{
-    for (const auto& component : components)
-    {
-        component->Draw(window);
-    }
+void Object::Draw(Window &window) {
+    drawable->Draw(window);
 }
 
-void Object::QueueForRemoval()
-{
+void Object::QueueForRemoval() {
     queuedForRemoval = true;
 }
 
-bool Object::IsQueuedForRemoval()
-{
-    return  queuedForRemoval;
+bool Object::IsQueuedForRemoval() {
+    return queuedForRemoval;
+}
+
+std::shared_ptr<C_Drawable> Object::GetDrawable() {
+    return drawable;
 }

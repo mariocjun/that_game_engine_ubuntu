@@ -10,25 +10,29 @@
 #include "SceneSplashScreen.hpp"
 #include "SceneGame.hpp"
 
-class Game
-{
+class Game {
 public:
     Game();
-    
+
     void CaptureInput();
+
     void Update();
+
     void LateUpdate();
+
     void Draw();
+
     void CalculateDeltaTime();
+
     bool IsRunning() const;
-    
+
 private:
     Window window;
     WorkingDirectory workingDir;
-    
+
     sf::Clock clock;
     float deltaTime;
-    
+
     SceneStateMachine sceneStateMachine;
     ResourceAllocator<sf::Texture> textureAllocator;
 };
