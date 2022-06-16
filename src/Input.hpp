@@ -12,7 +12,9 @@ public:
         Right = 2,
         Up = 3,
         Down = 4,
-        Esc = 5
+        Esc = 5,
+        LBracket = 6,
+        RBracket = 7
     };
 
     void Update();

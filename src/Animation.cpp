@@ -39,12 +39,7 @@ bool Animation::UpdateFrame(float deltaTime) {
 }
 
 void Animation::IncrementFrame() {
-    // check if we reached the last frame
-    if (currentFrameIndex == (frames.size() - 1)) {
-        currentFrameIndex = 0;
-    } else {
-        currentFrameIndex++;
-    }
+    currentFrameIndex = (currentFrameIndex + 1) % frames.size();
 }
 
 void Animation::Reset() {

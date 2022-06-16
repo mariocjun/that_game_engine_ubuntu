@@ -7,6 +7,8 @@ class C_Transform : public Component {
 public:
     C_Transform(Object *owner);
 
+    void LateUpdate(float deltaTime) override;
+
     void SetPosition(float x, float y);
 
     void SetPosition(const sf::Vector2f &pos);
@@ -25,8 +27,17 @@ public:
 
     const sf::Vector2f &GetPosition() const;
 
+    const sf::Vector2f &GetPreviousFramePosition() const;
+
+
+    void SetStatic(bool isStatic);
+
+    bool isStatic() const;
+
 private:
     sf::Vector2f position;
+    sf::Vector2f previousFramePosition;
+    bool isStaticTransform;
 };
 
 #endif /* C_Transform_hpp */

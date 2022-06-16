@@ -8,6 +8,7 @@
 #include "Component.hpp"
 #include "C_Transform.hpp"
 #include "C_Drawable.hpp"
+#include "C_InstanceID.hpp"
 
 class Object {
 public:
@@ -47,8 +48,6 @@ public:
 
     template<typename T>
     std::shared_ptr<T> GetComponent() {
-        static_assert(std::is_base_of<Component, T>::value, "T must derive from Component");
-
         // Check that we don't already have a component of this type.
         for (auto &exisitingComponent: components) {
             if (std::dynamic_pointer_cast<T>(exisitingComponent)) {
@@ -66,6 +65,7 @@ public:
     void QueueForRemoval();
 
     std::shared_ptr<C_Transform> transform;
+    std::shared_ptr<C_InstanceID> instanceID;
 
 private:
     std::vector<std::shared_ptr<Component>> components;

@@ -17,7 +17,6 @@ public:
 
     virtual void LateUpdate(float deltaTime) {};
 
-protected:
     Object *owner;
 };
 

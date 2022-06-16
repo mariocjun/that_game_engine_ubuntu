@@ -1,13 +1,18 @@
-//
-// Created by CIANDT\mariocj on 15/06/22.
-//
 
-#ifndef GAME_C_DRAWABLE_HPP
-#define GAME_C_DRAWABLE_HPP
+#ifndef C_Drawable_hpp
+#define C_Drawable_hpp
 
 #include <SFML/Graphics.hpp>
 
 #include "Window.hpp"
+
+
+enum class DrawLayer {
+    Default,
+    Background,
+    Foreground,
+    Entities
+};
 
 class C_Drawable {
 public:
@@ -17,13 +22,20 @@ public:
 
     virtual void Draw(Window &window) = 0;
 
+    virtual bool ContinueToDraw() const = 0;
+
     void SetSortOrder(int order);
 
     int GetSortOrder() const;
 
+    void SetDrawLayer(DrawLayer drawLayer);
+
+    DrawLayer GetDrawLayer() const;
+
 private:
     int sortOrder;
+    DrawLayer layer;
 };
 
 
-#endif //GAME_C_DRAWABLE_HPP
+#endif /* C_Drawable_hpp */

@@ -5,12 +5,11 @@ TileMapParser::TileMapParser(ResourceAllocator<sf::Texture> &textureAllocator) :
 
 std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string &file, sf::Vector2i offset) {
     char *fileLoc = new char[file.size() + 1];
-    //TODO: make multi format version of string copy
 #ifdef MACOS
     strlcpy(fileLoc, file.c_str(), file.size() + 1);
-#elif WIN32 || WIN64
+#elif WIN32
     strcpy_s(fileLoc, file.size() + 1, file.c_str());
-#else //LINUX
+#else // LINUX
     strcpy(fileLoc, file.c_str());
 #endif
 
@@ -20,7 +19,7 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string &fil
     doc.parse<0>(xmlFile.data());
     xml_node<> *rootNode = doc.first_node("map");
 
-    std::shared_ptr<MapTiles> tiles = BuildMapTiles(rootNode);
+    std::shared_ptr<MapTiles> map = BuildMapTiles(rootNode);
 
     int tileSizeX = std::atoi(rootNode->first_attribute("tilewidth")->value());
     int tileSizeY = std::atoi(rootNode->first_attribute("tileheight")->value());
@@ -29,26 +28,40 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string &fil
 
     std::vector<std::shared_ptr<Object>> tileObjects;
 
-    int layerCount = tiles->size() - 1;
+    int layerCount = map->size() - 1;
 
-    for (const auto &layer: *tiles) {
-        for (const auto &tile: *layer.second) {
+    for (const auto layer: *map) {
+        for (const auto tile: layer.second->tiles) {
             std::shared_ptr<TileInfo> tileInfo = tile->properties;
 
             std::shared_ptr<Object> tileObject = std::make_shared<Object>();
 
             const unsigned int tileScale = 3;
 
-            auto sprite = tileObject->AddComponent<C_Sprite>();
-            sprite->SetTextureAllocator(&textureAllocator);
-            sprite->Load(tileInfo->textureID);
-            sprite->SetTextureRect(tileInfo->textureRect);
-            sprite->SetScale(tileScale, tileScale);
-            sprite->SetSortOrder(layerCount);
+            if (layer.second->isVisible) {
+                auto sprite = tileObject->AddComponent<C_Sprite>();
+                sprite->SetTextureAllocator(&textureAllocator);
+                sprite->Load(tileInfo->textureID);
+                sprite->SetTextureRect(tileInfo->textureRect);
+                sprite->SetScale(tileScale, tileScale);
+                sprite->SetSortOrder(layerCount);
+                sprite->SetDrawLayer(DrawLayer::Foreground);
+            }
 
             float x = tile->x * tileSizeX * tileScale + offset.x;
             float y = tile->y * tileSizeY * tileScale + offset.y;
             tileObject->transform->SetPosition(x, y);
+            tileObject->transform->SetStatic(true);
+
+            if (layer.first == "Collisions") {
+                auto collider = tileObject->AddComponent<C_BoxCollider>();
+                float left = x - (tileSizeX * tileScale) * 0.5f;
+                float top = y - (tileSizeY * tileScale) * 0.5f;
+                float width = tileSizeX * tileScale;
+                float height = tileSizeY * tileScale;
+                collider->SetCollidable(sf::FloatRect(left, top, width, height));
+                collider->SetLayer(CollisionLayer::Tile);
+            }
 
             tileObjects.emplace_back(tileObject);
         }
@@ -90,6 +103,8 @@ std::shared_ptr<TileSheets> TileMapParser::BuildTileSheetData(xml_node<> *rootNo
         tileSheets.insert(std::make_pair(firstid, std::make_shared<TileSheetData>(tileSheetData)));
 
     }
+
+    //TODO: we should ensure tilesets are sorted by id ascending.
 
     return std::make_shared<TileSheets>(tileSheets);
 }
@@ -181,14 +196,21 @@ TileMapParser::BuildLayer(xml_node<> *layerNode, std::shared_ptr<TileSheets> til
             tile->x = count % width - 1;
             tile->y = count / width;
 
-
-            layer->emplace_back(tile);
+            layer->tiles.emplace_back(tile);
         }
 
         count++;
     }
 
     const std::string layerName = layerNode->first_attribute("name")->value();
+
+    bool layerVisible = true;
+    xml_attribute<> *visibleAttribute = layerNode->first_attribute("visible");
+    if (visibleAttribute) {
+        layerVisible = std::stoi(visibleAttribute->value());
+    }
+    layer->isVisible = layerVisible;
+
     return std::make_pair(layerName, layer);
 }
 
