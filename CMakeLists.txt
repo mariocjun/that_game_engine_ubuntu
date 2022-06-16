@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 project(Game)
 
 # Set the version of de language to use
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 # Activate json of cmake comands used in the project
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

@@ -28,11 +28,19 @@ void C_Sprite::Load(const std::string &filePath) {
 }
 
 void C_Sprite::LateUpdate(float deltaTime) {
-    sprite.setPosition(owner->transform->GetPosition());
+    sf::Vector2f pos = owner->transform->GetPosition();
+    const sf::IntRect &spriteBounds = sprite.getTextureRect();
+    const sf::Vector2f &spriteScale = sprite.getScale();
+    sprite.setPosition(pos.x - ((abs(spriteBounds.width) * 0.5f) * spriteScale.x),
+                       pos.y - (abs(spriteBounds.height) * 0.5f) * spriteScale.y);
 }
 
 void C_Sprite::Draw(Window &window) {
     window.Draw(sprite);
+}
+
+bool C_Sprite::ContinueToDraw() const {
+    return !owner->IsQueuedForRemoval();
 }
 
 void C_Sprite::SetTextureRect(int x, int y, int width, int height) {

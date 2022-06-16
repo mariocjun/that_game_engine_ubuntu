@@ -11,10 +11,13 @@
 #include "ObjectCollection.hpp"
 #include "TileMapParser.hpp"
 #include "C_Animation.hpp"
+#include "C_BoxCollider.hpp"
+#include "Debug.hpp"
+#include "C_Camera.hpp"
 
 class SceneGame : public Scene {
 public:
-    SceneGame(WorkingDirectory &workingDir, ResourceAllocator<sf::Texture> &textureAllocator);
+    SceneGame(WorkingDirectory &workingDir, ResourceAllocator<sf::Texture> &textureAllocator, Window &window);
 
     void OnCreate() override;
 
@@ -34,6 +37,7 @@ private:
     ResourceAllocator<sf::Texture> &textureAllocator;
     ObjectCollection objects;
     TileMapParser mapParser;
+    Window &window;
 };
 
 #endif /* SceneGame_hpp */

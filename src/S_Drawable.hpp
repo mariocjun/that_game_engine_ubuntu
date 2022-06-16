@@ -1,32 +1,28 @@
-//
-// Created by CIANDT\mariocj on 15/06/22.
-//
-
-#ifndef GAME_S_DRAWABLE_HPP
-#define GAME_S_DRAWABLE_HPP
+#ifndef S_Drawable_hpp
+#define S_Drawable_hpp
 
 #include <map>
-#include <memory>
 
 #include "C_Drawable.hpp"
 #include "Object.hpp"
+#include "Quadtree.hpp"
 
 class S_Drawable {
 public:
-    void Add(std::vector<std::shared_ptr<Object>> &object);
+    void Add(std::vector<std::shared_ptr<Object>> &objects);
 
     void ProcessRemovals();
 
     void Draw(Window &window);
 
 private:
+    static bool LayerSort(std::shared_ptr<C_Drawable> a, std::shared_ptr<C_Drawable> b);
+
     void Add(std::shared_ptr<Object> object);
 
     void Sort();
 
-    std::vector<std::shared_ptr<Object>> drawables;
-
+    std::map<DrawLayer, std::vector<std::shared_ptr<C_Drawable>>> drawables;
 };
 
-
-#endif //GAME_S_DRAWABLE_HPP
+#endif /* S_Drawable_hpp */

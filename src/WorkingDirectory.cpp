@@ -1,4 +1,5 @@
 #include "WorkingDirectory.hpp"
+
 #include <unistd.h>
 
 WorkingDirectory::WorkingDirectory() {
@@ -15,7 +16,7 @@ WorkingDirectory::WorkingDirectory() {
         CFRelease(resourcesURL);
         chdir(path);
     }
-    
+
     //TODO: why would this fail? what should we do if it does? It will result in resources not loading on mac so it is a big deal.
 
 #elif __linux__

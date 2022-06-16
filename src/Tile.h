@@ -2,7 +2,6 @@
 #define Tile_h
 
 #include "ResourceAllocator.hpp"
-#include "SFML/Graphics.hpp"
 
 // Stores common tile data.
 struct TileInfo {
